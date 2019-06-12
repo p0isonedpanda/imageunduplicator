@@ -5,7 +5,6 @@ from copy import deepcopy
 
 # only find pngs and throw them into a list
 images = list(filter(lambda i: '.png' in i, os.listdir()))
-os.mkdir('finished')
 
 while images:
     i = images.pop(0)
@@ -22,6 +21,7 @@ while images:
             removed.append(m)
             os.remove(m)
 
-    os.rename(i, 'finished/' + i)
     for r in removed:
         images.remove(r)
+
+print('done!')
